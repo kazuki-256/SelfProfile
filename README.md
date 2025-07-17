@@ -2,13 +2,13 @@
 
 ## Overview
 
-- Experienced programmer with 5 years of hands-on development in algorithm design and system-level programming.
-- Specialized in **C (4 years as primary language)** and **Python (5 years as secondary language)**.
+- Experienced programmer with 4 years of development in algorithm design and system-level programming.
+- Specialized in **C (3 years as primary language)** and **Python (4 years as secondary language)**.
 - Maintainer of several public C/C++ libraries on GitHub including [myhtml2](https://github.com/Fuuki255/myhtml2) and [linkable](https://github.com/Fuuki255/linkable).
 - Skilled in:
-  - Web networking using **libcurl** and custom HTML parsers
+  - Web networking using **libcurl** and self HTML parsers
   - Image processing with **OpenCV**
-  - Language translation via custom-built libraries
+  - Language translation via self-built libraries
   - Game development using **SDL2** and **Unity**
 - Basic proficiency in: Java, JavaScript, R, Lua, SQL
 
@@ -31,4 +31,4 @@ A high-performance HTML parser written in C++ with:
 
 ### 🔗 linkable
 
-more is making
+more is coming...
