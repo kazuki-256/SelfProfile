@@ -1,16 +1,33 @@
-# Fuuki Amaha
+# Yoshihara Kazuki
 
 ## Overview
 
-- Experienced programmer with 4 years of development in algorithm design and system-level programming.
-- Specialized in **C (3 years as primary language)** and **Python (4 years as secondary language)**.
-- Maintainer of several public C/C++ libraries on GitHub including [myhtml2](https://github.com/Fuuki255/myhtml2) and [linkable](https://github.com/Fuuki255/linkable).
-- Skilled in:
-  - Web networking using **libcurl** and self HTML parsers
-  - Image processing with **OpenCV**
-  - Language translation via self-built libraries
-  - Game development using **SDL2** and **Unity**
-- Basic proficiency in: Java, JavaScript, R, Lua, SQL
+- Languages:
+
+  - C/C++: 4 years as primary language, mastering memory control, effectively and readable
+
+  - Python: 5 years as secondary language, used its interpreter, OpenCV, networking, etc...
+
+  - Basic proficiency in: Lua, Json, html, JavaScript, Java, SQL
+
+- Skills:
+  - Networking: client by libcurl + myhtml2-c, server by SocketTCP (structed socket)
+
+  - Image process: OpenCV2, sdb-image
+
+  - language translation: googletrans (privated c program reamke of googletrans-python)
+
+  - Game development: mygame3 (structed SDL2)
+
+  - data science: dataframe-cpp (under developing)
+
+- Maintainer of several public C/C++ libraries on GitHub including
+
+  - [myhtml2-c](https://github.com/kazuki-256/myhtml2)
+
+  - [linkable](https://github.com/kazuki-255/linkable)
+
+  - [dataframe c++](https://github.com/kazuki-256/dataframe-cpp) (on developing)
 
 ## Contact
 
