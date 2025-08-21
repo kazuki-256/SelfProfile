@@ -15,9 +15,9 @@
 
   - Image process: OpenCV2, sdb-image
 
-  - language translation: googletrans (privated c program reamke of googletrans-python)
+  - language translation: googletrans (private c program reamke of googletrans-python)
 
-  - Game development: mygame3 (structed SDL2)
+  - Game development: mygame3 (pricate api structed SDL2)
 
   - data science: dataframe-cpp (under developing)
 
@@ -29,23 +29,85 @@
 
   - [dataframe c++](https://github.com/kazuki-256/dataframe-cpp) (on developing)
 
+
+
+---
+
 ## Contact
 
 - 🔗 GitHub: [Fuuki255](https://github.com/Fuuki255)
 - 📧 Email: luy18667@gmail.com
 
+
+
+---
+
 ## Featured Projects
 
-### 💡 myhtml2
+### 💡 myhtml2-c
 
-A high-performance HTML parser written in C++ with:
-- Clean, readable data structures
-- Full debugging support
+C program fast html api to parse/make html:
+
+- Clean, readable and easy using
+
+- Full NULL debugging
+
 - Robust error recovery, inspired by BeautifulSoup4
+
 - Benchmarks show:
-  - **17x+ faster parsing** compared to BS4
-  - **20x+ faster selection** matching JS/BS4 selectors
+  - 17x faster parsing than BeautifulSoup4
+  - 20x faster selection than BeautifulSoup4
 
 ### 🔗 linkable
 
-more is coming...
+c++ two linkable structure basic, free object with full control destruction unlike std::list
+
+
+**Sample**
+
+```cpp
+#include "linkable.hpp"
+#include <SDL2/SDL.h>
+#include <string>
+
+class GameObject : public TwoLinkable {
+    SDL_Texture* texture;
+    
+    float x, y;
+public:
+    GameObject(SDL_Texture* texture, float x, float y);
+
+    void draw(SDL_Renderer* renderer);
+};
+
+
+#include "games.cpp"
+
+int main(int argc, char** argv) {
+    // only class maked with TwoLinkable can be its object
+    game_init();
+
+    TwoLinkableList<GameObject> objectList;
+
+    object.tlAddObject(new GameObject(0, 0, texture_background));
+
+
+    while (game_running) {
+        game_basic_handle_event();
+
+        SDL_RenderClear(game_renderer);
+        for (GameOject* object : objectList) {
+            object->draw(game_renderer);
+        }
+        SDL_RenderPresent(game_renderer);
+
+        SDL_Delay(1000 / 60);
+    }
+
+    game_quit();
+    // objectList actully destroy autoly
+    objectList.tlClear();
+    return 0;
+}
+
+```
