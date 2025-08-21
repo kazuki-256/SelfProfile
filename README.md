@@ -58,6 +58,62 @@ C program fast html api to parse/make html:
   - 17x faster parsing than BeautifulSoup4
   - 20x faster selection than BeautifulSoup4
 
+
+**Samples**
+
+```cpp
+#include "myhtml2/myhtml.h"
+
+
+int main(int argc, char** argv) {
+    HtmlObject* doc = HtmlReadObjectFromFile("sample.html");
+
+    // == print html title ==
+    HtmlObject* tagTitle = HtmlFindObject(doc, "title");
+    printf("title: %s\n", HtmlGetObjectInnerText(tagTitle);   // 
+
+    // == iterate all <img> ==
+    HtmlSelect select = HtmlCreateSelect(doc, "img");
+
+    printf("founded <img> href:\n");
+    HtmlForeachSelect(select, tag) {
+        printf("  %s\n", HtmlGetObjectAttrValue(tag, "href"));
+
+        // you can stop finding to reduce finding unuse object
+        // break;
+    }
+    putchar('\n');
+
+    HtmlDestroySelect(&select);  // destroy select task
+
+    // == find all objects ==
+    HtmlArray result = HtmlFindAllObjects(doc, "link");
+
+    printf("all links\n");
+    for (int i = 0; i < result.length; i++) {
+        printf("  %s\n", HtmlWriteObjectToString(result.objects[i]));
+        // the string to unview memory: tagTitle->name + strlen(tagTitle->name) + 1
+    }
+
+    HtmlDestroyArray(&result); // destroy array
+
+
+    // == write html (optional) ==
+    HtmlWriteHtmlToFile(doc, "output.html");
+
+    // == destroy doc/objects ==
+    HtmlDestroyObject(doc);
+
+    return 0;
+}
+
+```
+
+- myhtml2-c++ coming soon
+
+
+---
+
 ### 🔗 linkable
 
 c++ two linkable structure basic, free object with full control destruction unlike std::list
@@ -81,32 +137,43 @@ public:
 };
 
 
-#include "games.cpp"
+#include "game.cpp"  // game.cpp for skip many defines, not actually program
+
+GameObject* mob1 = NULL;
+GameObject* mob2 = NULL;
 
 int main(int argc, char** argv) {
     // only class maked with TwoLinkable can be its object
     game_init();
 
+    // == init list ==
     TwoLinkableList<GameObject> objectList;
 
-    object.tlAddObject(new GameObject(0, 0, texture_background));
+    mob1 = objectList.tlAddObject(new GameObject(0, 0, texture_mob1));
+    mob2 = objectList.tlAddObject(new GameObject(0, 0, texture_mob2));
 
+    // == loop game ==
 
     while (game_running) {
-        game_basic_handle_event();
+        game_loop_start();
 
-        SDL_RenderClear(game_renderer);
+        // delete object
+        if (game_is_delete_mob1) {
+            delete mob1;   // direct deleting O(1), also mob1 removed from objectList
+         }
+
+        // foreach objects
         for (GameOject* object : objectList) {
             object->draw(game_renderer);
         }
-        SDL_RenderPresent(game_renderer);
 
-        SDL_Delay(1000 / 60);
+        game_loop_end();
     }
 
-    game_quit();
     // objectList actully destroy autoly
     objectList.tlClear();
+
+    game_quit();
     return 0;
 }
 
